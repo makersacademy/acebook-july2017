@@ -1,24 +1,31 @@
 # AceBook
 
-**Coaches: Fork this repository to `acebook-cohortname` and customize
-the below**
+The card wall is [here on trello](https://trello.com/b/OCqCEIYX/acebook-july2017)
 
-[You can find the week outline here.](https://github.com/makersacademy/course/tree/acebook/acebook)
+## Development
+Take a minute to read the [CONTRIBUTING.md](CONTRIBUTING.md)
 
-The card wall is here: [[[]]]
-
-## How to contribute to this project
-See [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## Quickstart
-
-First, clone this repository. Then:
+To run the app locally:
 
 ```bash
+git clone https://github.com/makersacademy/acebook-july2017.git
+cd acebook-july2017
 bundle install
 bin/rails db:create
 bin/rails db:migrate
-
-bundle exec rspec # Run the tests to ensure it works
-bin/rails server # Start the server at localhost:3000
+bin/rails server #  localhost:3000
 ```
+
+## Tests
+
+```bash
+bin/rails db:migrate RAILS_ENV=test # Ensure your test environment is updated
+bundle exec rspec # Runs the whole test suite
+bundle exec rspec path/to/spec_file # Runs a single spec
+```
+
+## Staging
+  add info
+
+## Production
+  add info
