@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  def postedat
-    self.created_at.strftime("%H:%M (%d/%m/%y)")
+  def posted_at
+    created_at.strftime("%H:%M (%d/%m/%y)")
   end
 end
