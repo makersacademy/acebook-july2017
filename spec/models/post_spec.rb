@@ -5,8 +5,8 @@ RSpec.describe Post, type: :model do
   it { is_expected.to be }
 
   describe "#postedat" do
-    it "responds to the #postedat method" do
-      expect(post).to respond_to(:postedat)
+    it "responds to the #posted_at method" do
+      expect(post).to respond_to(:posted_at)
     end
   end
 end
