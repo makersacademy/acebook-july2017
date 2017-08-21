@@ -15,15 +15,21 @@
  */
 
 
- .btn {
-   background-color: #709fea;
-   color: white;
-   border: #1047a3;
-
- }
+.btn {
+  background-color: #709fea;
+  color: white;
+  border: #1047a3;
+}
 .navbar-brand{
   font-family: 'Baloo Bhaijaan', cursive;
   font-size: 30px;
-  margin-left: 80px;
+  margin-left: 80px
+}
 
+textarea {
+  border: 2px solid #D6D9DC;
+  border-radius: 5px;
+  min-height: 100px;
+  margin: 10px;
+  width: 300px;
 }
