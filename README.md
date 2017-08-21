@@ -1,3 +1,4 @@
+![Build Status](https://api.travis-ci.org/makersacademy/acebook-july2017.svg?branch=master])
 # AceBook
 
 The card wall is [here on trello](https://trello.com/b/OCqCEIYX/acebook-july2017)
