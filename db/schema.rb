@@ -21,4 +21,8 @@ ActiveRecord::Schema.define(version: 20170526114520) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students", id: :serial, force: :cascade do |t|
+    t.string "name", limit: 50
+  end
+
 end
