@@ -1,0 +1,21 @@
+.post {
+  width:40%;
+  margin:15px;
+}
+
+.post__head {
+  background-color:grey;
+}
+
+.post__head__user {
+  float:left;
+}
+
+.post__head__date {
+  float:right;
+}
+
+.post__body {
+  margin-top:5px;
+  background-color:lightgrey;
+}
