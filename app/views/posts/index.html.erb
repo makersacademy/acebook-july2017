@@ -1,15 +1,15 @@
 <% @posts.each do |post| %>
   <div class="post">
-    <div class="posthead">
-      <span class="postuser">
+    <div class="post__head">
+      <span class="post__head__user">
         (username here)
       </span>
-      <span class="postdate">
-        posted at: <%= post.created_at.strftime("%H:%M (%d/%m/%y)") %>
+      <span class="post__head__date">
+        posted at: <%= post.postedat %>
       </span>
       <br>
     </div>
-    <div class="postbody">
+    <div class="post__body">
       <%= post.message %>
     </div>
   </div>

@@ -3,19 +3,19 @@
   margin:15px;
 }
 
-.posthead {
+.post__head {
   background-color:grey;
 }
 
-.postuser {
+.post__head__user {
   float:left;
 }
 
-.postdate {
+.post__head__date {
   float:right;
 }
 
-.postbody {
+.post__body {
   margin-top:5px;
   background-color:lightgrey;
 }
