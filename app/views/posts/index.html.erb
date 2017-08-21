@@ -10,9 +10,9 @@
       <br>
     </div>
     <div class="post__body">
-      <%= post.message %>
+      <%= simple_format(post.message)%>
     </div>
-  </div>
+</div>
 <% end %>
 
 <%= link_to new_post_path do %>
