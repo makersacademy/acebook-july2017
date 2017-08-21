@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .btn {
+   background-color: #709fea;
+   color: white;
+   border: #1047a3;
+
+ }
+.navbar-brand{
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 30px;
+  margin-left: 80px;
+
+}
