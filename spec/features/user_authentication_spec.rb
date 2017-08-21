@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "User" do
   let(:email) {'user@gmail.com'}
   let(:password) {'123'}
+  
   scenario "I can sign up with new email and password" do
     visit('/user/new')
     fill_in 'email', with: email
