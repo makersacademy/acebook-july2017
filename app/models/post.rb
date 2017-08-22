@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   include PublicActivity::Model
   tracked # owner: ->(controller,model) {controller && controller.current_user} -->to be implemented after user authentication
 
+  belongs_to :user
   def self.reverse_order
     all.reverse
   end
