@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
 
+  belongs_to :user
   def self.reverse_order
     all.reverse
   end
