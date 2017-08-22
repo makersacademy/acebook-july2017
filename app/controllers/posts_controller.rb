@@ -10,11 +10,15 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @like = Like.new
   end
 
   private
 
   def post_params
+    p "======================================"
+    p params
+    p "======================================"
     params.require(:post).permit(:message)
   end
 end

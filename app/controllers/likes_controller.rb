@@ -12,7 +12,9 @@ class LikesController < ApplicationController
   private
 
   def like_params
+    p "======================================"
     p params
+    p "======================================"
     params.require(:like).permit(:post_id)
   end
 end
