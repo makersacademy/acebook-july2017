@@ -7,9 +7,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    p '======================================================='
-    p current_user
-    p '======================================================='
 
     @post = current_user.posts.create(post_params)
     # @post = Post.create(post_params)
