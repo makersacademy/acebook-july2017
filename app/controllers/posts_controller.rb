@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-    @like = Like.new
+    @posts = Post.reverse_order
+		@like = Like.new
   end
 
   private

@@ -38,6 +38,9 @@ group :development, :test do
 	gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.5'
+  gem 'orderly'
+  gem 'factory_girl_rails'
+  gem 'timecop'
 end
 
 group :development do

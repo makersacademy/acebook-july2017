@@ -1,11 +1,22 @@
 <% @posts.each do |post| %>
-<p><%= post.message %></p>
-
-  <%= form_for @like do |form| %>
-    <%= form.hidden_field :post_id, :value => post.id %>
-    <%= form.submit "Like" %>
-  <% end %>
-
+  <div class="post">
+    <div class="post__head">
+      <span class="post__head__user">
+        (username here)
+      </span>
+      <span class="post__head__date">
+        posted at: <%= post.posted_at %>
+      </span>
+      <br>
+    </div>
+    <div class="post__body">
+      <%= simple_format(post.message)%>
+			<%= form_for @like do |form| %>
+				<%= form.hidden_field :post_id, :value => post.id %>
+				<%= form.submit "Like" %>
+			<% end %>
+    </div>
+</div>
 <% end %>
 
 <%= link_to new_post_path do %>
