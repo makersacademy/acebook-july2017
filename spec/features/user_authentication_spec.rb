@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User" do
+feature "user" do
   let(:email) {'user@gmail.com'}
   let(:password) {'123456abc.'}
 
@@ -13,10 +13,10 @@ feature "User" do
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 
-  context "sign in" do
+  context "/sign_in" do
     let!(:user) { User.create(email: "test@test.com", password: "test12") }
 
-    scenario "I can sign in" do
+    scenario "After signing out, I'm forwarded to index" do
       visit("/users/sign_in")
       fill_in 'user_email', with: "test@test.com"
       fill_in 'user_password', with: "test12"
