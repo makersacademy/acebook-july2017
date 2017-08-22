@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "Timeline", type: :feature do
-  let!(:post_0) { create(:post, message: "First post") }
-  let!(:post_1) { create(:post, message: "Second post") }
-
   let!(:user) { create(:user) }
+  let!(:post_0) { create(:post, message: "First post", user_id: user.id) }
+  let!(:post_1) { create(:post, message: "Second post", user_id: user.id) }
 
   before do
     visit("/users/sign_in")
@@ -14,7 +13,6 @@ RSpec.feature "Timeline", type: :feature do
       click_button 'Log in'
     end
   end
-
 
   scenario "created posts appear newest first" do
     visit "/posts"
