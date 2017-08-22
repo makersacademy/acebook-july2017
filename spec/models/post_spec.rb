@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject(:post) { described_class.new }
-  let!(:posts) { create_list(:post, 3)}
+  let!(:user) { create(:user)}
+  let!(:post) { create(:post, message: "First post", user_id: user.id) }
 
   it { is_expected.to be }
 
