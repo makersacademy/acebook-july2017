@@ -15,6 +15,7 @@
 				<%= form.hidden_field :post_id, :value => post.id %>
 				<%= form.submit "Like" %>
 			<% end %>
+      <div id='likes'>likes: <%= Like.where(post_id: post.id).count %></div>
     </div>
 </div>
 <% end %>
