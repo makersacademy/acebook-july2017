@@ -1,5 +1,18 @@
 <% @posts.each do |post| %>
-  <p><%= post.message %></p>
+  <div class="post">
+    <div class="post__head">
+      <span class="post__head__user">
+        (username here)
+      </span>
+      <span class="post__head__date">
+        posted at: <%= post.posted_at %>
+      </span>
+      <br>
+    </div>
+    <div class="post__body">
+      <%= simple_format(post.message)%>
+    </div>
+</div>
 <% end %>
 
 <%= link_to new_post_path do %>
