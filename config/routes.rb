@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts
 
-<<<<<<< HEAD
   root to: 'posts#index'
-=======
-  root 'posts#index'
->>>>>>> cb73a0af60f5d839f6dad7776edcbe1c638e2412
 
 end
