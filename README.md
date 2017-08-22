@@ -26,7 +26,13 @@ bundle exec rspec path/to/spec_file # Runs a single spec
 ```
 
 ## Staging
-  add info
+Deployed to Heroku here: https://acebook17.herokuapp.com
+
+```bash
+heroku run rake db:migrate --app acebook17```
 
 ## Production
-  add info
+Deployed to Heroku here: https://pacebook17.herokuapp.com
+
+```bash
+heroku run rake db:migrate --app pacebook17```
