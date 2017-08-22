@@ -42,6 +42,7 @@ group :development, :test do
   gem 'orderly'
   gem 'factory_girl_rails'
   gem 'timecop'
+  gem 'database_cleaner'
 end
 
 group :development do
