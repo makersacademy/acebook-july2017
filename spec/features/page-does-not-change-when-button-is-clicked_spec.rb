@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Like", type: :feature do
-  let!(:post) { create(:post, message: "Test post") }
-
-  let!(:user) { create(:user) }
+  let!(:user) { User.create(email: "test@test.com", password: "test12") }
 
   before do
     visit("/users/sign_in")
@@ -12,6 +10,10 @@ RSpec.feature "Like", type: :feature do
     within(:css, 'div.actions') do
       click_button 'Log in'
     end
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "Hello, world!"
+    click_button "Submit"
   end
 
   scenario "page does not change when button like is clicked" do

@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20170823110021) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +67,5 @@ ActiveRecord::Schema.define(version: 20170823110021) do
   end
 
   add_foreign_key "likes", "posts"
+  add_foreign_key "posts", "users"
 end
