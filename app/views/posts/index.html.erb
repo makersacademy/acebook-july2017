@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="post">
+  <div id='post-<%= post.id %>' class="post">
     <div class="post__head">
       <span class="post__head__user">
         <%= post.user.email %>
@@ -17,6 +17,17 @@
 	<% end %>
       <div id='likes'>likes: <%= Like.where(post_id: post.id).count %></div>
     </div>
+    <div class="comment__body">
+      <% post.comments.each do |comment| %>
+        <%= simple_format(comment.message)%>
+      <% end %>
+    </div>
+    <%= form_for [post, @comment] do |form| %>
+      <%= form.label :message %>
+      <%= form.text_area :message, :rows =>1, :cols => 50 %>
+      <%= form.hidden_field :post_id, value: post.id %>
+      <%= form.submit "Submit" %>
+    <% end %>
 </div>
 <% end %>
 
