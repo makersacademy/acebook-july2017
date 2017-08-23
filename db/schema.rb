@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170822114601) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "likes", force: :cascade do |t|
-    t.bigint "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_likes_on_post_id"
-  end
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -41,6 +32,13 @@ ActiveRecord::Schema.define(version: 20170822114601) do
     t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient_type_and_recipient_id"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -67,5 +65,4 @@ ActiveRecord::Schema.define(version: 20170822114601) do
   end
 
   add_foreign_key "likes", "posts"
-
 end
