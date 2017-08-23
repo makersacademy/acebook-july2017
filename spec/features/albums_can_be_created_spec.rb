@@ -16,7 +16,7 @@ feature 'Album' do
   end
 
   scenario 'Create album' do
-    visit '/albums'
+    click_link 'My albums'
     click_button 'New album'
     fill_in 'user_album_name', with: test_album_name
     click_button 'Create'
