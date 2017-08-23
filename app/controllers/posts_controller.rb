@@ -2,12 +2,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.create(post_params)
+    post = Post.new(post_params)
+    current_user.posts << post
+    current_user.save
     redirect_to posts_url
+
   end
 
   def index
@@ -19,5 +22,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message)
   end
-  
+
 end

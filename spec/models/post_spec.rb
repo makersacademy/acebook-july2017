@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject(:post) { described_class.new }
-
+  
+  let!(:post) { create(:post) }
   let!(:longpost) { create(:post, message: "a" * 21)}
   let!(:shortpost) { create(:post, message: "a")}
   let!(:posts) { create_list(:post, 3)}
@@ -10,7 +10,7 @@ RSpec.describe Post, type: :model do
   it { is_expected.to be }
 
   describe "#reverse_order" do
-    it "testing post_0" do
+    it "returns all posts in reverse order" do
       expect(Post.reverse_order).to eq(Post.all.reverse)
     end
   end
