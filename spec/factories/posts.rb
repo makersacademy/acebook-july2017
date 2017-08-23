@@ -1,6 +1,8 @@
 FactoryGirl.define do
-  factory :post do |f|
-    f.message "New post"
-    f.user_id 1
+  factory :post do
+    user { create(:user)}
+    sequence :message do |n|
+      "Post number #{n}"
+    end
   end
 end

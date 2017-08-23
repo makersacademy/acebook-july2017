@@ -6,10 +6,10 @@ class PostsController < ApplicationController
   end
 
   def create
-
-    @post = current_user.posts.create(post_params)
+    post = Post.new(post_params)
+    current_user.posts << post
+    current_user.save
     redirect_to posts_url
-
   end
 
   def index
@@ -21,5 +21,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message)
   end
-  
+
 end
