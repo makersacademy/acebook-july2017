@@ -2,7 +2,7 @@
   <div class="post">
     <div class="post__head">
       <span class="post__head__user">
-        <%= post.user.email %>
+        <%= post.id  %>
       </span>
       <span class="post__head__date">
         posted at: <%= post.posted_at %>
@@ -11,10 +11,11 @@
     </div>
     <div class="post__body">
       <%= simple_format(post.message)%>
-	<%= form_for(@like, url: post_likes_path(post)) do |form| %>
-	  <%= form.hidden_field :post_id, :value => post.id %>
-	  <%= form.submit "Like" %>
-	<% end %>
+      	<%= form_for(@like, url: post_likes_path(post)) do |form| %>
+      	  <%= form.hidden_field :post_id, :value => post.id %>
+          <%= form.hidden_field :current_user, :value => current_user %>
+      	  <%= form.submit "Like" %>
+      	<% end %>
       <div id='likes'>likes: <%= Like.where(post_id: post.id).count %></div>
     </div>
 </div>
