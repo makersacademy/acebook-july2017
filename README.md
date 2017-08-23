@@ -26,13 +26,10 @@ bundle exec rspec path/to/spec_file # Runs a single spec
 ```
 
 ## Staging
-Deployed to Heroku here: https://acebook17.herokuapp.com
+Pull requests are automatically staged as 'review apps' on heroku and will be available here:
+![image](http://i.imgur.com/55FaD4J.png?1)
 
-```bash
-heroku run rake db:migrate --app acebook17```
+## Heroku Deployment
 
-## Production
-Deployed to Heroku here: https://pacebook17.herokuapp.com
-
-```bash
-heroku run rake db:migrate --app pacebook17```
+### https://acebook17.herokuapp.com
+Heroku automatically deploys master branch on github to production.
