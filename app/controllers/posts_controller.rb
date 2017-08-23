@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     current_user.posts << post
     current_user.save
     redirect_to posts_url
+
   end
 
   def index
