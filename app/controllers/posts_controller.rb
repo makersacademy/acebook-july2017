@@ -10,7 +10,6 @@ class PostsController < ApplicationController
     current_user.posts << post
     current_user.save
     redirect_to posts_url
-
   end
 
   def index
@@ -22,5 +21,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message)
   end
-
 end
