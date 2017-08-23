@@ -1,0 +1,7 @@
+<a href="/users/<%= current_user.id %>/albums/new"><button>New album</button></a>
+
+<%if @albums %>
+  <% @albums.each do |album| %>
+    <%= album.name %>
+  <% end %>
+<% end %>
