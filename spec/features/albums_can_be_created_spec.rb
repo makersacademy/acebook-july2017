@@ -17,8 +17,7 @@ feature 'Album' do
 
   scenario 'Create album' do
     click_link 'My albums'
-    click_button 'New album'
-    expect(page).to have_content('My albums')
+    click_link 'New album'
     fill_in 'album_name', with: test_album_name
     click_button 'Create'
     expect(page).to have_content(test_album_name)

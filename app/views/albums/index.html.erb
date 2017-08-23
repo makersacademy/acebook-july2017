@@ -1,7 +1,11 @@
+<h1>My albums</h1>
+<br/>
 <a href="/users/<%= current_user.id %>/albums/new"><button>New album</button></a>
-
+<br/><br/>
 <%if @albums %>
+  <ul>
   <% @albums.each do |album| %>
-    <%= album.name %>
+    <li><div><%= album.name %></div></li>
   <% end %>
+</ul>
 <% end %>
