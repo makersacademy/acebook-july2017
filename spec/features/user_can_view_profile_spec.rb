@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'web_helpers.rb'
+require 'user_helpers.rb'
 
 feature "Profile page" do
 
