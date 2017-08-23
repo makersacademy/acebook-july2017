@@ -23,7 +23,7 @@
   <body>
     <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
 
-    <% if controller.current_user %>
+    <% if current_user %>
       <a href="/users/<%= controller.current_user.id %>">My profile</a>
     <% end %>
 
