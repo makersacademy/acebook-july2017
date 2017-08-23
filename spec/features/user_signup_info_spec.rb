@@ -7,6 +7,7 @@ feature "user" do
   let(:last_name) {'Withers'}
   let(:date_of_birth) {"1890-08-22 00:00:00"}
   let(:hometown) {'London'}
+  let(:occupation) {'Coach'}
   let(:bio) {"I'm pretty cool and stuff. Now go feed the MonsterCat"}
 
 
@@ -22,6 +23,7 @@ feature "user" do
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
     fill_in 'user_hometown', with: hometown
+    fill_in 'user_occupation', with: occupation
     fill_in 'user_bio', with: bio
     click_button 'Sign up'
     expect(page).to have_content('Welcome! You have signed up successfully.')
