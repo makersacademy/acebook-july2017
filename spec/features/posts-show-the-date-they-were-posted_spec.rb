@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature "Date Posted", type: :feature do
+RSpec.feature "Show Date", type: :feature do
 
   let!(:user) { create(:user) }
 
   before do
     visit("/users/sign_in")
-    fill_in 'user_email', with: "test@test.com"
-    fill_in 'user_password', with: "test12"
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     within(:css, 'div.actions') do
       click_button 'Log in'
     end
