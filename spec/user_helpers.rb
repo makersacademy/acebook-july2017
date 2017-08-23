@@ -1,13 +1,4 @@
-let(:email) {'user@gmail.com'}
-let(:password) {'123456abc.'}
-let(:first_name) {'Edward'}
-let(:last_name) {'Withers'}
-let(:date_of_birth) {"1890-08-22 00:00:00"}
-let(:hometown) {'London'}
-let(:occupation) {'Coach'}
-let(:bio) {"I'm pretty cool and stuff. Now go feed the MonsterCat"}
-
-  def sign_up
+  def sign_up(first_name, last_name, email, password, hometown, occupation, bio)
     visit('/users/sign_up')
     fill_in 'user_first_name', with: first_name
     fill_in 'user_last_name', with: last_name
