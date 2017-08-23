@@ -4,8 +4,23 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth, :start_year=>1890,:end_year=>2001 %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -29,6 +44,21 @@
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown %>
+  </div>
+
+  <div class="field">
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %> <em><%= '(140 characters maximum)'%></em><br />
+    <%= f.text_field :bio, maxlength: 140 %>
   </div>
 
   <div class="actions">
