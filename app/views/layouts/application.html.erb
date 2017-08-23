@@ -23,6 +23,10 @@
   <body>
     <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
 
+    <% if current_user %>
+      <a href="/users/<%= controller.current_user.id %>">My profile</a>
+    <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 

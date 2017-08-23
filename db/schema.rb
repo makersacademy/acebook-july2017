@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170823152351) do
   end
 
   create_table "students", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 50
+    t.string "name", limit: 50 
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,11 +1,13 @@
 class Post < ApplicationRecord
    belongs_to :user
-  
+
   include PublicActivity::Model
   tracked # owner: ->(controller,model) {controller && controller.current_user} -->to be implemented after user authentication
 
+  has_many :comments
+
   MAX_SUMMARY_LENGTH = 20
-  
+
   def self.reverse_order
     all.reverse
   end
