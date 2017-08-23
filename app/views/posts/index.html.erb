@@ -13,7 +13,7 @@
       <%= simple_format(post.message)%>
       	<%= form_for(@like, url: post_likes_path(post)) do |form| %>
       	  <%= form.hidden_field :post_id, :value => post.id %>
-          <%= form.hidden_field :current_user, :value => current_user %>
+          <%= form.hidden_field :user_id, :value => current_user.id %>
       	  <%= form.submit "Like" %>
       	<% end %>
       <div id='likes'>likes: <%= Like.where(post_id: post.id).count %></div>

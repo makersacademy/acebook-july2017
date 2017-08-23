@@ -5,7 +5,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @like = Like.create(like_params)
     redirect_to posts_url
   end
@@ -13,6 +13,6 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.require(:like).permit(:post_id, :current_user)
+    params.require(:like).permit(:post_id, :user_id)
   end
 end
