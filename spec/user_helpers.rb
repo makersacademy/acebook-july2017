@@ -18,10 +18,10 @@
     click_link 'Sign out'
   end
 
-  def login
+  def login(email = "ladyruby@rails.com", password = "password123")
     visit("/users/sign_in")
-    fill_in 'user_email', with: "ladyruby@rails.com"
-    fill_in 'user_password', with: "password123"
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: password
     within(:css, 'div.actions') do
       click_button 'Log in'
     end
