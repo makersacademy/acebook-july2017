@@ -1,6 +1,6 @@
 <h1>My albums</h1>
 <br/>
-<a href="/users/<%= current_user.id %>/albums/new"><button>New album</button></a>
+<%= link_to "New album", new_user_album_path %>
 <br/><br/>
 <%if @albums %>
   <ul>

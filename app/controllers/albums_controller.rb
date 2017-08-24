@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
     album = Album.new(album_params)
     current_user.albums << album
     current_user.save
-    redirect_to 
+    redirect_to user_albums_url
   end
 
   private
