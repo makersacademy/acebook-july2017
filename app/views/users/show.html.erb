@@ -4,6 +4,7 @@
     <p>Date of Birth: <%= @user.format_date_of_birth %></p>
     <p>Hometown: <%= @user.hometown %></p>
     <p>Occupation: <%= @user.occupation %></p>
+    <p>About me: <%= @user.bio %></p>
 </div>
 
 <%= link_to "Edit your profile information", edit_user_registration_path %>
