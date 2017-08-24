@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'user_helpers.rb'
 
 feature "Profile page" do
 
