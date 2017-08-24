@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20170824151040) do
     t.index ["album_id"], name: "index_images_on_album_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "data_file_name"
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.datetime "data_updated_at"
+    t.index ["album_id"], name: "index_images_on_album_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "post_id"
     t.datetime "created_at", null: false
