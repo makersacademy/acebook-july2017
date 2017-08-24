@@ -18,6 +18,6 @@ RSpec.feature "Show Date", type: :feature do
     fill_in "post_message", with: "Hello, world!"
     click_button "Submit"
     post = Post.find_by(message: "Hello, world!")
-    expect(page).to have_content(post.created_at.strftime("%H:%M (%d/%m/%y)"))
+    expect(page).to have_content(post.created_at.localtime.strftime("%H:%M (%d/%m/%y)"))
   end
 end
