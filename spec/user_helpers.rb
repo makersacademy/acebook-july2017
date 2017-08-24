@@ -1,13 +1,13 @@
-  def sign_up(first_name = "Edward",
-              last_name = "Withers",
-              birth_year = 1890,
-              birth_month = "May",
-              birth_day = 1,
-              email = "user@gmail.com",
-              password = "123456abc.",
-              hometown = "London",
-              occupation = "Coach",
-              bio = "I'm pretty cool and stuff. Now go feed the MonsterCat")
+  def sign_up(first_name: "Edward",
+              last_name: "Withers",
+              birth_year: 1890,
+              birth_month: "May",
+              birth_day: 1,
+              email: "user@gmail.com",
+              password: "123456abc.",
+              hometown: "London",
+              occupation: "Coach",
+              bio: "I'm pretty cool and stuff. Now go feed the MonsterCat")
     visit('/users/sign_up')
     fill_in 'user_first_name', with: first_name
     fill_in 'user_last_name', with: last_name
