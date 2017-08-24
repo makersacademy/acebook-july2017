@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Timeline", type: :feature do
-  let!(:user) { User.create(email: "test@test.com", password: "test12") }
+  let!(:user) { create(:user) }
 
   before do
     visit("/users/sign_in")
-    fill_in 'user_email', with: "test@test.com"
-    fill_in 'user_password', with: "test12"
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     within(:css, 'div.actions') do
       click_button 'Log in'
     end

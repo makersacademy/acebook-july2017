@@ -20,4 +20,8 @@ class Post < ApplicationRecord
     return message unless message.length > MAX_SUMMARY_LENGTH
     message[0...MAX_SUMMARY_LENGTH] + "..."
   end
+
+  def user_name
+    "#{user.first_name} #{user.last_name}"
+  end
 end
