@@ -14,8 +14,8 @@ class AlbumsController < ApplicationController
     album = Album.new(album_params)
     if album.save
       if params[:images]
-        params[:images].each do |image|
-          album.images.create(image: image)
+        params[:images].each do |data|
+          album.images.create(data: data)
         end
       end
     end
@@ -27,6 +27,6 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:name)
+    params.require(:album).permit(:name, :user_id)
   end
 end
