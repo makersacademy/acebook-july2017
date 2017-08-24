@@ -7,8 +7,7 @@ RSpec.feature "Like", type: :feature do
   before do
     login
     visit "/posts"
-    click_link "New post"
-    fill_in "Message", with: "Hello, world!"
+    fill_in "post_message", with: "Hello, world!"
     click_button "Submit"
   end
 
