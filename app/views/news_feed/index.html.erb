@@ -2,7 +2,9 @@
 
 <% @activities.each do |activity| %>
   <div class = "activity">
-  [username here]<%= link_to activity.owner.name, activity.owner if activity.owner %>
-  posted <%= link_to activity.trackable.summary, activity.trackable.summary %>
+    <% if activity.trackable_type == "Post" %>
+      [username here]<%= link_to activity.owner.name, activity.owner if activity.owner %>
+      posted <%= link_to activity.trackable.summary, activity.trackable.summary %>
+    <% end %>
 </div>
 <%end%>
