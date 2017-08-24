@@ -4,10 +4,6 @@ RSpec.describe AlbumsController, type: :controller do
   describe "Post" do
     let!(:album) { create(:album) }
 
-    before do
-      sign_in(album.user)
-    end
-
     it "GET / responds with 200" do
       redirect_to user_albums_url(album.user)
       expect(response).to have_http_status(200)
