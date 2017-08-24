@@ -13,6 +13,12 @@ feature 'Album' do
     end
   end
 
+  scenario 'View albums' do
+    click_link 'My albums'
+    expect(page).to have_content('My albums')
+    expect(page).to have_content('New album')
+  end
+
   scenario 'Create album' do
     click_link 'My albums'
     click_link 'New album'
