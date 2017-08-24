@@ -11,8 +11,10 @@ RSpec.feature "Like", type: :feature do
       click_button 'Log in'
     end
     visit "/posts"
-    fill_in "post_message", with: "Hello, world!"
-    click_button "Submit"
+    within ".new_post" do
+      fill_in "post_message", with: "Hello, world!"
+      click_button "Submit"
+    end
   end
 
   scenario "page does not change when button like is clicked" do
