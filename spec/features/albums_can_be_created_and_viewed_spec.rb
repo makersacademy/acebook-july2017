@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 feature 'Album' do
-  let!(:user) { create(:user) }
-  let!(:album) { create(:album) }
   let!(:test_album_name) { 'My days at Makers' }
+  let!(:album) { create(:album) }
 
   before do
     visit("/users/sign_in")
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
+    fill_in 'user_email', with: album.user.email
+    fill_in 'user_password', with: album.user.password
     within(:css, 'div.actions') do
       click_button 'Log in'
     end
@@ -16,7 +15,7 @@ feature 'Album' do
 
   scenario 'View albums' do
     click_link 'My albums'
-    expect(page).to have_content('Makers')
+    expect(page).to have_content(album.name)
   end
 
   scenario 'Create album' do
