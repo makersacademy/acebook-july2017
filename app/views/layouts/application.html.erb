@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Acebook</title>
-    <!-- Bootstrap CSS -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
@@ -21,16 +22,18 @@
   </nav>
 
   <body>
-    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
-
+    <% if current_user %>
+      <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+    <% end %>
     <% if current_user %>
       <%= link_to "My albums", user_albums_url(current_user) %>
       <a href="/users/<%= controller.current_user.id %>">My profile</a>
     <% end %>
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <main>
+      <%= yield %>
+    </main>
 
-    <%= yield %>
   </body>
 </html>

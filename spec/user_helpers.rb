@@ -2,9 +2,9 @@
     visit('/users/sign_up')
     fill_in 'user_first_name', with: 'Edward'
     fill_in 'user_last_name', with: 'Withers'
-    select 1890, :from => "user_date_of_birth_1i"
-    select "May", :from => "user_date_of_birth_2i"
     select 1, :from => "user_date_of_birth_3i"
+    select "May", :from => "user_date_of_birth_2i"
+    select 1985, :from => "user_date_of_birth_1i"
     fill_in 'user_email', with: 'user@gmail.com'
     fill_in 'user_password', with: '123456abc.'
     fill_in 'user_password_confirmation', with: '123456abc.'
