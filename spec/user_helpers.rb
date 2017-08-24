@@ -5,24 +5,35 @@
     select 1890, :from => "user_date_of_birth_1i"
     select "May", :from => "user_date_of_birth_2i"
     select 1, :from => "user_date_of_birth_3i"
-    fill_in 'user_email', with: 'user@gmail.com'
-    fill_in 'user_password', with: '123456abc.'
-    fill_in 'user_password_confirmation', with: '123456abc.'
-    fill_in 'user_hometown', with: 'London'
-    fill_in 'user_occupation', with: 'Coach'
-    fill_in 'user_bio', with: "I'm pretty cool and stuff. Now go feed the MonsterCat"
-    click_button 'Sign up'
+    within(:css, 'form.new_user') do
+      fill_in 'user_email', with: 'user@gmail.com'
+      fill_in 'user_password', with: '123456abc.'
+      fill_in 'user_password_confirmation', with: '123456abc.'
+      fill_in 'user_hometown', with: 'London'
+      fill_in 'user_occupation', with: 'Coach'
+      fill_in 'user_bio', with: "I'm pretty cool and stuff. Now go feed the MonsterCat"
+      click_button 'Sign up'
+    end
   end
 
   def sign_out
     click_link 'Sign out'
   end
 
-  def login(email = "ladyruby@rails.com", password = "password123")
+  def login(user)
     visit("/users/sign_in")
-    fill_in 'user_email', with: email
-    fill_in 'user_password', with: password
-    within(:css, 'div.actions') do
+    within(:css, 'form.new_user') do
+      fill_in 'user_email', with: user.email
+      fill_in 'user_password', with: user.password
       click_button 'Log in'
     end
   end
+
+  def login_nav(email = "georgeclooney@gc.com", password = "qwerty")
+    visit("/users/sign_in")
+    within(:css, 'nav.navbar') do
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: password
+    click_button 'Log in'
+  end
+end

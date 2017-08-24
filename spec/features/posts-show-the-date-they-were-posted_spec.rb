@@ -5,12 +5,7 @@ RSpec.feature "Show Date", type: :feature do
   let!(:user) { create(:user) }
 
   before do
-    visit("/users/sign_in")
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    within(:css, 'div.actions') do
-      click_button 'Log in'
-    end
+    login(user)
   end
 
   scenario "Newly created posts show the date they were posted" do

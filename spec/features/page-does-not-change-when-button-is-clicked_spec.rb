@@ -1,15 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "Like", type: :feature do
-  let!(:user) { User.create(email: "test@test.com", password: "test12") }
+  let!(:user) { create(:user) }
 
   before do
-    visit("/users/sign_in")
-    fill_in 'user_email', with: "test@test.com"
-    fill_in 'user_password', with: "test12"
-    within(:css, 'div.actions') do
-      click_button 'Log in'
-    end
+    login(user)
     visit "/posts"
     click_link "New post"
     fill_in "Message", with: "Hello, world!"

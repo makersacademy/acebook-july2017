@@ -14,20 +14,20 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">A C E B O O K</a>
     <% if current_user %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn my-2 my-sm-0"%>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn my-2 my-sm-0", id: "sign_out" %>
     <% else %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
         <%= f.label :email %><br />
-        <%= f.email_field :email, :class => "form-control mr-sm-2", autofocus: true %>
+        <%= f.email_field :email, :class => "form-control mr-sm-2 email", autofocus: true %>
         <%= f.label :password %><br />
-        <%= f.password_field :password, :class => "form-control mr-sm-2", autocomplete: "off" %>
-        <%= f.submit "Log in", :class => "btn my-2 my-sm-0" %>
+        <%= f.password_field :password, :class => "form-control mr-sm-2 password", autocomplete: "off" %>
+        <%= f.submit "Log in", :class => "btn my-2 my-sm-0 logIn" %>
       <% end %>
     <% end %>
   </nav>
 
   <body>
-  
+
     <% if current_user %>
       <a href="/users/<%= controller.current_user.id %>">My profile</a>
     <% end %>
