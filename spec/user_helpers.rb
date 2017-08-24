@@ -16,10 +16,6 @@
     end
   end
 
-  def sign_out
-    click_link 'Sign out'
-  end
-
   def login(user)
     visit("/users/sign_in")
     within(:css, 'form.new_user') do
