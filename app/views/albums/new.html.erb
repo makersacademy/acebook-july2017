@@ -2,7 +2,21 @@
 
 <h2>New album</h2>
 
-<%= form_for [@user, @album] do |f| %>
+<%= form_for([@user, @album], multipart: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :images %>
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Upload images" %>
+  </div>
+<% end %>
+
+<!-- <%= form_for [@user, @album] do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
@@ -11,4 +25,4 @@
   <div class="actions">
     <%= f.submit "Create" %>
   </div>
-<% end %>
+<% end %> -->

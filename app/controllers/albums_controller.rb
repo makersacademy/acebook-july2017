@@ -12,8 +12,15 @@ class AlbumsController < ApplicationController
 
   def create
     album = Album.new(album_params)
-    current_user.albums << album
-    current_user.save
+    if album.save
+      if params[:images]
+        params[:images].each do |image|
+          album.images.create(image: image)
+        end
+      end
+    end
+    # current_user.albums << album
+    # current_user.save
     redirect_to user_albums_url
   end
 
