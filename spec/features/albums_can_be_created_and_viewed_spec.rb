@@ -30,5 +30,4 @@ feature 'Album' do
     expect(page).to have_content(album.created_at.localtime.strftime("%H:%M (%d/%m/%y)"))
     expect(page).to have_content("My adventures in testing")
   end
-
 end
