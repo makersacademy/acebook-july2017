@@ -1,7 +1,8 @@
 require 'rails_helper'
 require 'user_helpers.rb'
 
-feature "user" do
+RSpec.feature "User", type: :feature do
+let!(:user) { create(:user) }
 
   scenario "I can sign up" do
     sign_up

@@ -10,13 +10,13 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Can submit posts and view them" do
-    fill_in "Message", with: "Hello, world!"
+    fill_in "post_message", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
 
   scenario "Can make posts with multpile lines" do
-    fill_in "Message", with: "Hey\r\nWhat's up\r"
+    fill_in "post_message", with: "Hey\r\nWhat's up\r"
     click_button "Submit"
     expect(page).to have_content("Hey\r\nWhat's up\r")
   end

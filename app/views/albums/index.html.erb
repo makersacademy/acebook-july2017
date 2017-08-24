@@ -1,0 +1,11 @@
+<h1>My albums</h1>
+<br/>
+<%= link_to "New album", new_user_album_path %>
+<br/><br/>
+<%if @albums %>
+  <ul>
+  <% @albums.each do |album| %>
+    <li><div><%= album.name %></div></li>
+  <% end %>
+</ul>
+<% end %>
