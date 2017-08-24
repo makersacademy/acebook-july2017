@@ -8,9 +8,11 @@ RSpec.feature "Username with posts in news feed", type: :feature do
   before do
     sign_up(first_name: first_name, last_name: last_name)
     visit "/posts"
-    click_link "New post"
-    fill_in "Message", with: "Hello, world!"
-    click_button "Submit"
+    within (".new_post") do
+      fill_in "post_message", with: "Hello, world!"
+      click_button "Submit"
+    end
+
   end
 
   scenario "when posts appear in the news feed" do
