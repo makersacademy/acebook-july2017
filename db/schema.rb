@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 20170824151040) do
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(version: 20170824151040) do
   add_foreign_key "albums", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "images", "albums"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"

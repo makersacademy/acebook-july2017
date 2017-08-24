@@ -1,26 +1,17 @@
-
-
 <h2>New album</h2>
-
 
 <%= form_for [@user, @album], :html => { :class => 'form-horizontal', multipart: true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'text_field' %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :pictures, :class => 'control-label' %>
     <div class="controls">
-      <!-- The magic is coming ...look at my eyes....shazammmm -->
-      <!-- Use HTML5 multiple attribute to enable multiple selection
-           and pass back to controller all files as an array, ready
-           for paperclip!!
-           file_field_tag, since images is not a gallery attribute
-       -->
-      <%= file_field_tag "images[]", type: :file, multiple: true %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= file_field_tag 'images[]', type: :file, multiple: true %>
     </div>
   </div>
 
@@ -30,33 +21,3 @@
                 user_albums_path, :class => 'btn btn-mini' %>
   </div>
 <% end %>
-
-
-
-<br/><br/><br/><br/><br/>
-<!-- OLD STUFF -->
-
-<%= form_for([@user, @album], multipart: true) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :images %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Upload images" %>
-  </div>
-<% end %>
-
-<!-- <%= form_for [@user, @album] do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Create" %>
-  </div>
-<% end %> -->
