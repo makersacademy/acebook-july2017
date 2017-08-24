@@ -33,3 +33,32 @@ Pull requests are automatically staged as 'review apps' on heroku and will be av
 
 ### https://acebook17.herokuapp.com
 Heroku automatically deploys master branch on github to production.
+
+### Database Issues
+Due to poor planning, features were pushed live without their associations (ie. 'commenting' without the 'user' association in the database). This caused issues when the association was added, as existing items in the database had NULL values in the foreign key column.
+In order to eliminate errors, a migration was written for populating the NULL values in the production database ([PR here](https://github.com/makersacademy/acebook-july2017/pull/28)).
+To test the migration effectively, the production database was duplicated, and the migration was run locally. The process was as follows:
+
+- Generate a backup of the database. This backup appears as a .dump in the current folder:
+```
+heroku pg:backups:capture
+```
+- Create a local database which we will populate from the .dump backup:
+```
+createdb acebook17-guineapig]
+```
+- Populate the database with the backup:
+```
+pg_restore -d acebook17-guineapig "latest.dump"
+```
+- Create a new environment in config environments (in this case; guineapig.rb)
+- Add the database to the environment (config/database.yml):
+```
+guineapig:
+  <<: *default
+  database: acebook17-guineapig
+```
+- run a migration using our new environment:
+```
+bin/rails db:migrate RAILS_ENV="guineapig"
+```
