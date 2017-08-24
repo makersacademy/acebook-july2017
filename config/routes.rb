@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'news_feed/index'
+  get 'news_feed' => 'news_feed#index'
   devise_for :users
 
   resources :users do

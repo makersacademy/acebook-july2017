@@ -7,7 +7,7 @@ RSpec.feature "Username with posts in news feed", type: :feature do
 
   before do
     sign_up(first_name: first_name, last_name: last_name)
-    visit "/posts"
+    visit posts_path
     within (".new_post") do
       fill_in "post_message", with: "Hello, world!"
       click_button "Submit"
@@ -16,7 +16,7 @@ RSpec.feature "Username with posts in news feed", type: :feature do
   end
 
   scenario "when posts appear in the news feed" do
-    visit "/news_feed/index"
+    visit news_feed_url
     expect(page).to have_content("#{first_name} #{last_name}")
   end
 end
