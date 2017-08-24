@@ -12,8 +12,8 @@ class Post < ApplicationRecord
     all.reverse
   end
 
-  def posted_at
-    created_at.strftime("%H:%M (%d/%m/%y)")
+	def posted_at
+    created_at.localtime.strftime("%H:%M (%d/%m/%y)")
   end
 
   def summary

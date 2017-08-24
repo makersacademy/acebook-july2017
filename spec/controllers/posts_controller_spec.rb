@@ -3,14 +3,9 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   describe "Post" do
     let!(:user) { create(:user) }
-    
+
     before do
       sign_in(user)
-    end
-
-    it "GET /new responds with 200" do
-      get :new
-      expect(response).to have_http_status(200)
     end
 
     it "POST / responds with 200" do
