@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170824140113) do
   add_foreign_key "albums", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "images", "albums"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
