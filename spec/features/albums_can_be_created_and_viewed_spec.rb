@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'Album' do
   let!(:user) { create(:user) }
-  let(:test_album_name) { 'My days at Makers' }
+  let!(:album) { create(:album) }
+  let!(:test_album_name) { 'My days at Makers' }
 
   before do
     visit("/users/sign_in")
@@ -15,8 +16,7 @@ feature 'Album' do
 
   scenario 'View albums' do
     click_link 'My albums'
-    expect(page).to have_content('My albums')
-    expect(page).to have_content('New album')
+    expect(page).to have_content('Makers')
   end
 
   scenario 'Create album' do
