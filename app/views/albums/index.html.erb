@@ -5,7 +5,13 @@
 <%if @albums %>
   <ul>
   <% @albums.each do |album| %>
-    <li><div><%= album.name %></div></li>
+    <li>
+			<div>
+				<%= album.name %><br>
+				<%= album.description %><br>
+				<%= album.posted_at %><br>
+			</div>
+		</li>
   <% end %>
 </ul>
 <% end %>
