@@ -9,12 +9,12 @@ feature "user" do
   end
 
   context "/sign_in" do
-    let!(:user) { User.create(email: "test@test.com", password: "test12") }
+    let!(:user) { create(:user) }
 
     scenario "After signing out, I'm forwarded to sign in" do
       visit("/users/sign_in")
-      fill_in 'user_email', with: 'user@gmail.com'
-      fill_in 'user_password', with: '123456abc.'
+      fill_in 'user_email', with: user.email
+      fill_in 'user_password', with: user.password
       within(:css, 'div.actions') do
         click_button 'Log in'
       end
