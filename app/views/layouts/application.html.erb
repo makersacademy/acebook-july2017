@@ -25,6 +25,7 @@
 
     <% if current_user %>
       <%= link_to 'My albums', ('/users/' + current_user.id.to_s + '/albums') %>
+      <a href="/users/<%= controller.current_user.id %>">My profile</a>
     <% end %>
 
     <p class="notice"><%= notice %></p>

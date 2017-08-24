@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.reverse_order
+    @comment = Comment.new
+    @like = Like.new
   end
 
   private

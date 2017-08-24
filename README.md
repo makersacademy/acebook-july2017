@@ -26,7 +26,10 @@ bundle exec rspec path/to/spec_file # Runs a single spec
 ```
 
 ## Staging
-  add info
+Pull requests are automatically staged as 'review apps' on heroku and will be available here:
+![image](http://i.imgur.com/55FaD4J.png?1)
 
-## Production
-  add info
+## Heroku Deployment
+
+### https://acebook17.herokuapp.com
+Heroku automatically deploys master branch on github to production.
