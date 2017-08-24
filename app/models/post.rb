@@ -21,7 +21,7 @@ class Post < ApplicationRecord
     message[0...MAX_SUMMARY_LENGTH] + "..."
   end
 
-  def user_name
-    "#{user.first_name} #{user.last_name}"
+  def author_full_name
+    user.full_name
   end
 end
