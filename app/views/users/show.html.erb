@@ -1,6 +1,6 @@
 <div class="user-profile">
   <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
-    <img src="http://www.freeiconspng.com/uploads/computer-user-icon-8.png" width=200>
+    <div><%= image_tag(@user.avatar.url(:medium)) %></div>
     <p>Date of Birth: <%= @user.format_date_of_birth %></p>
     <p>Hometown: <%= @user.hometown %></p>
     <p>Occupation: <%= @user.occupation %></p>
