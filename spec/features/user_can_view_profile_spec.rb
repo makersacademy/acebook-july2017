@@ -12,7 +12,4 @@ feature "Profile page" do
     expect(page).to have_content('Coach')
     expect(page).to have_content("I'm pretty cool and stuff. Now go feed the MonsterCat")
   end
-
-
-
 end

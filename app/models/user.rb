@@ -11,5 +11,4 @@ class User < ApplicationRecord
   def format_date_of_birth
     date_of_birth.strftime("%d/%m/%y")
   end
-
 end
