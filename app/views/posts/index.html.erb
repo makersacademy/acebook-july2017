@@ -1,5 +1,11 @@
 <h1>Posts</h1>
 
+<%= form_for @post, url: {controller: "posts", action: "create"} do |form| %>
+  <%= form.label :message, "Create a new post" %>
+  <%= form.text_area :message, :rows =>4, :cols => 50 %>
+  <%= form.submit "Submit" %>
+<% end %>
+
 <% @posts.each do |post| %>
   <div id='post-<%= post.id %>' class="post">
     <div class="post__head">
@@ -26,14 +32,10 @@
       <% end %>
     </div>
     <%= form_for [post, @comment] do |form| %>
-      <%= form.label :message %>
+      <%= form.label :comment %>
       <%= form.text_area :message, :rows =>1, :cols => 50 %>
       <%= form.hidden_field :post_id, value: post.id %>
       <%= form.submit "Submit" %>
     <% end %>
 </div>
-<% end %>
-
-<%= link_to new_post_path do %>
-  New post
 <% end %>
