@@ -32,7 +32,7 @@ RSpec.describe Post, type: :model do
 
   describe "#user_name" do
     it "return the username with first and last name" do
-      expect(post.user_name).to eq("#{post.user.first_name} #{post.user.last_name}")
+      expect(post.author_full_name).to eq("#{post.user.first_name} #{post.user.last_name}")
     end
   end
 end
