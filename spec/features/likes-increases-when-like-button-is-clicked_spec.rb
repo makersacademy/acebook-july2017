@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Like", type: :feature do
-let!(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   before do
     login(user)

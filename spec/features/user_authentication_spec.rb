@@ -1,8 +1,7 @@
 require 'rails_helper'
-require 'user_helpers.rb'
 
 RSpec.feature "User", type: :feature do
-let!(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   scenario "I can sign up" do
     sign_up
@@ -10,11 +9,10 @@ let!(:user) { create(:user) }
   end
 
   context "/sign_in" do
-
-    scenario "After signing out, I'm forwarded to sign in" do
-      sign_up
-      click_button 'Sign out'
-      expect(current_path).to eq "/users/sign_in"
-    end
+  scenario "After signing out, I'm forwarded to sign in" do
+    sign_up
+    click_button 'Sign out'
+    expect(current_path).to eq "/users/sign_in"
+  end
   end
 end

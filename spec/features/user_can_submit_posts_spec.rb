@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'user_helpers.rb'
 
 RSpec.feature "Timeline", type: :feature do
   let!(:user) { create(:user) }
