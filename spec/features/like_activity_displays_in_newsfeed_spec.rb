@@ -21,6 +21,6 @@ RSpec.feature "Likings appear in news feed", type: :feature do
 
   scenario "when someone likes something" do
     visit "/news_feed/index"
-    expect(page).to have_content("#{first_name} #{last_name} liked #{post_message}")
+    expect(page).to have_content("#{first_name} #{last_name} liked #{first_name} #{last_name}'s post: #{post_message}")
   end
 end

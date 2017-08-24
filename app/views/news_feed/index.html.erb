@@ -6,7 +6,9 @@
       [username here]<%= link_to activity.owner.name, activity.owner if activity.owner %>
       posted <%= link_to activity.trackable.summary, activity.trackable.summary %>
     <% elsif activity.trackable_type == "Like" %>
-      <%= "#{activity.trackable.user.full_name} liked" %> <%= link_to activity.trackable.post.summary, activity.trackable.post.summary%>
+      <b><%= "#{activity.trackable.user.full_name}"%></b> liked
+      <b><%= "#{activity.trackable.post.author_full_name}'s"%></b> post:
+      <%= link_to activity.trackable.post.summary, activity.trackable.post.summary%>
     <% end %>
 </div>
 <%end%>
