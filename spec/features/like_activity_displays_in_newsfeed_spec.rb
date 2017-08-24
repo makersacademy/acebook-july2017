@@ -5,7 +5,7 @@ RSpec.feature "Likings appear in news feed", type: :feature do
 
   let(:first_name) { "Edward" }
   let(:last_name) { "Withers" }
-  let(:post_message) { "I approve this pull request" }
+  let(:post_message) { "I approve this" }
 
   before do
     sign_up
