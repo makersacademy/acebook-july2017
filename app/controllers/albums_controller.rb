@@ -6,20 +6,24 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @album = current_user.albums.new
   end
 
   def create
-    album = Album.new(album_params)
-    if album.save
-      if image_params
-        image_params.each do |data|
-          album.images.create(data: data)
-        end
-      end
-    end
+    album = Album.create(album_params)
+    # if album.save
+    #   if image_params
+    #     image_params.each do |data|
+    #       album.images.create(data: data)
+    #     end
+    #   end
+    # end
     redirect_to user_albums_url
+  end
+
+  def show
+    @album = Album.find(params[:id])
+    @image = Image.new
   end
 
   private

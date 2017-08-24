@@ -5,7 +5,7 @@
 <%if @albums %>
   <ul>
   <% @albums.each do |album| %>
-    <li><div><%= album.name %></div></li>
+    <li><%= link_to album.name, user_album_url(current_user, album) %></li>
   <% end %>
 </ul>
 <% end %>
