@@ -4,14 +4,10 @@ feature 'Album' do
   let!(:test_album_name) { 'My days at Makers' }
   let!(:test_album_description) { "My adventures in testing" }
   let!(:album) { create(:album) }
+  let!(:user) { create(:user) }
 
   before do
-    visit("/users/sign_in")
-    fill_in 'user_email', with: album.user.email
-    fill_in 'user_password', with: album.user.password
-    within(:css, 'div.actions') do
-      click_button 'Log in'
-    end
+    login(user)
   end
 
   scenario 'Albums can be created' do
