@@ -17,6 +17,7 @@ RSpec.feature "The wall", type: :feature do
 
   scenario 'Expect to find only user-related posts on their wall' do
     visit(user_wall_index_path(post1.user))
+    p post1
     expect(page).to have_content(post1.message)
     expect(page).not_to have_content(post2.message)
   end
