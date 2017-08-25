@@ -50,6 +50,7 @@
         <%= form.submit "Like", class: "btn btn-secondary" %>
         <% end %>
         </div>
+        <%= button_to "Delete", post_path(post.id), method: :delete, class: "btn btn-info comment-count", id: "delete_post" %>
         <button type="button" class="comment-count btn btn-info" data-toggle="collapse" data-target="#collapseAddComment<%= post.id %>" aria-expanded="false" aria-controls="collapseAddComment<%= post.id %>">Comment</button>
       </div>
 

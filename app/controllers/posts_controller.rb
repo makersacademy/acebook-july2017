@@ -15,9 +15,19 @@ class PostsController < ApplicationController
     @post = current_user.posts.new
   end
 
+  def destroy
+    post = Post.find_by(destroy_params)
+    post.destroy
+    redirect_to posts_url
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:message)
+  end
+
+  def destroy_params
+    params.permit(:id)
   end
 end
