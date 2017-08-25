@@ -1,6 +1,10 @@
 <%= simple_format(current_user.email)%>
 <%= simple_format(@album.name)%>
 
+<% @album.images.each do |image| %>
+<%= image_tag image.data.url %>
+<% end %>
+
 <%= form_for [current_user, @album, @image], :html => { :class => 'form-horizontal', multipart: true } do |f| %>
   <div class="control-group">
     <%= f.label :Upload, :class => 'control-label' %>
