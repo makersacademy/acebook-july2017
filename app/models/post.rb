@@ -29,4 +29,9 @@ class Post < ApplicationRecord
   def like
     "Like".pluralize(likes.count)
   end
+
+  def like_count
+    likes.count
+  end
+
 end
