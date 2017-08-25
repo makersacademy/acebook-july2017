@@ -13,7 +13,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">A C E B O O K</a>
+    <a href="/posts#index" class="navbar-brand">A C E B O O K</a>
     <% if current_user %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn my-2 my-sm-0", id: "sign_out" %>
     <% else %>
