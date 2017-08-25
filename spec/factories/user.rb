@@ -8,5 +8,6 @@ FactoryGirl.define do
     end
     password "test12"
     last_name "bobby"
+    date_of_birth "1960-08-23 23:00:00"
   end
 end
