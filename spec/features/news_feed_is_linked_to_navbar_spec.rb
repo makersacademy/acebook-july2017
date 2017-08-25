@@ -9,5 +9,4 @@ RSpec.feature "Newsfeed link in navbar", type: :feature do
     click_link "A C E B O O K"
     expect(current_path).to eq("/news_feed")
   end
-
 end
