@@ -24,3 +24,5 @@
 /yarn-error.log
 
 .byebug_history
+
+.env

@@ -1,11 +1,14 @@
-
-
 <h2>New album</h2>
 
 <%= form_for [@user, @album] do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
   </div>
 
   <div class="actions">
