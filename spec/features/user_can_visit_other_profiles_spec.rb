@@ -8,6 +8,6 @@ feature 'visit other profiles' do
     login(user)
     visit "/posts"
     click_on("#{post.user.first_name} #{post.user.last_name}")
-    expect(current_path).to eq "/users/#{post.user_id}"
+    expect(current_path).to eq user_path(post.user)
   end
 end
