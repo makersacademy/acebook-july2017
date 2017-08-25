@@ -4,8 +4,14 @@
 <br/><br/>
 <%if @albums %>
   <ul>
-  <% @albums.each do |album| %>
-    <li><%= link_to album.name, user_album_url(current_user, album) %></li>
-  <% end %>
-</ul>
+     <% @albums.each do |album| %>
+        <li>
+           <div>
+	      <%= link_to album.name, user_album_url(current_user, album) %>
+	      <%= album.description %><br>
+	      <%= album.posted_at %><br>
+           </div>
+        </li>
+     <% end %>
+  </ul>
 <% end %>

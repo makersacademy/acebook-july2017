@@ -17,5 +17,4 @@ RSpec.describe CommentsController, type: :controller do
       expect{ post :create, params: params }.to change{ Comment.count }.by(1)
     end
   end
-
 end

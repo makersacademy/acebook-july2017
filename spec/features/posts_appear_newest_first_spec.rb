@@ -6,12 +6,7 @@ RSpec.feature "Timeline", type: :feature do
   let!(:post_1) { create(:post) }
 
   before do
-    visit("/users/sign_in")
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    within(:css, 'div.actions') do
-      click_button 'Log in'
-    end
+    login(user)
   end
 
   scenario "created posts appear newest first" do

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-   belongs_to :user
+  belongs_to :user
+  has_many :likes
 
   include PublicActivity::Model
   tracked # owner: ->(controller,model) {controller && controller.current_user} -->to be implemented after user authentication
@@ -22,6 +23,15 @@ class Post < ApplicationRecord
   end
 
   def user_name
-    "#{user.first_name} #{user.last_name}"
+    "#{user.user_name}"
   end
+
+  def like
+    "Like".pluralize(likes.count)
+  end
+
+  def like_count
+    likes.count
+  end
+
 end

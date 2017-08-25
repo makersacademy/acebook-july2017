@@ -17,6 +17,22 @@ bin/rails db:migrate
 bin/rails server #  localhost:3000
 ```
 
+To set up the remote hosting for images:
+
+- Sign up to [AWS](https://aws.amazon.com/) and create a bucket to store file uploads.
+- Create a `.env` file in the root directory of the project and include the following details:
+```
+S3_BUCKET_NAME=(bucket name)
+AWS_ACCESS_KEY_ID=(your key)
+AWS_SECRET_ACCESS_KEY=(your secret access key)
+AWS_REGION=(region, eg eu-west-2)
+```
+- Add `.env` to your `.gitignore` file
+
+A heroku guide to setting up a project with AWS and Paperclip can be read [here](https://devcenter.heroku.com/articles/paperclip-s3).
+A Paperclip Github guide can be read [here](https://github.com/thoughtbot/paperclip/wiki/Paperclip-with-Amazon-S3).
+
+
 ## Tests
 
 ```bash

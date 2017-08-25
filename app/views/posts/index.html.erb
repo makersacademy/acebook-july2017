@@ -1,42 +1,82 @@
-<h1>Posts</h1>
+<div class="container"
+  <h1>Posts</h1>
 
-<%= form_for @post, url: {controller: "posts", action: "create"} do |form| %>
-  <%= form.label :message, "Create a new post" %>
-  <%= form.text_area :message, :rows =>4, :cols => 50 %>
-  <%= form.submit "Submit" %>
+  <%= form_for @post, url: {controller: "posts", action: "create"} do |form| %>
+    <%= form.label :message, "Create a new post" %>
+    <%= form.text_area :message, :rows =>4, :cols => 50 %>
+    <%= form.submit "Submit" %>
+  <% end %>
+
+  <% @posts.each do |post| %>
+    <div id='post-<%= post.id %>' class="post card">
+      <div class="post__head card-header">
+        <span class="post__head__user">
+          <%= link_to post.user_name, post.user %>
+        </span>
+        <span class="post__head__date">
+          <%= link_to post.posted_at, post_path(post) %>
+        </span>
+        <br>
+      </div>
+      <div class="post__body card-block">
+        <div class="card-text">
+          <h6><%= post.message %></h6>
+        </div>
+      </div>
+
+      <div class="post__interactions card-block">
+        <hr>
+        <div class="like" id="likes">
+          <span class="badge badge-info"><%= post.like_count %> <%= post.like %></span>
+        </div>
+        <button type="button" class="comment-count btn btn-outline-info" data-toggle="collapse" data-target="#collapseComments<%= post.id %>" aria-expanded="false" aria-controls="collapseComments<%= post.id %>"><%= Comment.where(post_id: post.id).count %> comments</button>
+      </div>
+
+      <div class="collapse" id="collapseComments<%= post.id %>">
+        <% post.comments.each do |comment| %>
+          <div class="comment__body card">
+            <div class="comment__text card-block">
+              <p class="comment_user"><%= comment.user.user_name %>:<span class="comment__body"><%= comment.message %></span></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="post__footer card-footer">
+        <div class="like">
+        <%= form_for(@like, url: post_likes_path(post)) do |form| %>
+        <%= form.hidden_field :post_id, :value => post.id %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.submit "Like", class: "btn btn-secondary" %>
+        <% end %>
+        </div>
+        <button type="button" class="comment-count btn btn-info" data-toggle="collapse" data-target="#collapseAddComment<%= post.id %>" aria-expanded="false" aria-controls="collapseAddComment<%= post.id %>">Comment</button>
+      </div>
+
+      <div class="collapse" id="collapseAddComment<%= post.id %>">
+        <div class="comment__entry card-block">
+          <div class="comment__form">
+            <%= form_for [post, @comment] do |form| %>
+              <div class="form-group">
+                <%= form.text_area :message, class: "form-control"%>
+                <%= form.hidden_field :post_id, value: post.id %>
+                <%= form.hidden_field :user_id, value: current_user.id %>
+                <%= form.submit "Submit", class: "commentbutton btn btn-info" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to new_post_path do %>
+  New post
 <% end %>
 
-<% @posts.each do |post| %>
-  <div id='post-<%= post.id %>' class="post">
-    <div class="post__head">
-      <span class="post__head__user">
-        <%= post.user_name %>
-      </span>
-      <span class="post__head__date">
-        posted at: <%= post.posted_at %>
-      </span>
-      <br>
-    </div>
-    <div class="post__body">
-      <%= simple_format(post.message)%>
-      	<%= form_for(@like, url: post_likes_path(post)) do |form| %>
-      	  <%= form.hidden_field :post_id, :value => post.id %>
-          <%= form.hidden_field :user_id, :value => current_user.id %>
-      	  <%= form.submit "Like" %>
-      	<% end %>
-      <div id='likes'>likes: <%= Like.where(post_id: post.id).count %></div>
-    </div>
-    <div class="comment__body">
-      <% post.comments.each do |comment| %>
-        (user posting comment goes here) <%= simple_format(comment.message) %>
-      <% end %>
-    </div>
-    <%= form_for [post, @comment] do |form| %>
-      <%= form.label 'Add Comment:' %>
-      <%= form.text_area :message, :rows =>1, :cols => 50 %>
-      <%= form.hidden_field :post_id, value: post.id %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
-      <%= form.submit "Submit" %>
-    <% end %>
-</div>
+<% if current_user %>
+  <%= link_to user_wall_index_path(current_user) do %>
+   My Wall
+  <% end %>
 <% end %>

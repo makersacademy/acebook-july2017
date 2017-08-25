@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Acebook</title>
-    <!-- Bootstrap CSS -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
@@ -12,25 +13,36 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">A C E B O O K</a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="text" placeholder="email" name='email'>
-      <input class="form-control mr-sm-2" type="text" placeholder="password" name='password'>
-      <button class="btn my-2 my-sm-0" type="submit" value='Log in'>Log in</button>
-    </form>
+    <%= link_to "A C E B O O K", root_path, class: "navbar-brand" %>
+    <% if current_user %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn my-2 my-sm-0", id: "sign_out" %>
+    <% else %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, :class => "form-control mr-sm-2 email", autofocus: true %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password, :class => "form-control mr-sm-2 password", autocomplete: "off" %>
+        <%= f.submit "Log in", :class => "btn my-2 my-sm-0 logIn" %>
+      <% end %>
+    <% end %>
   </nav>
 
   <body>
-    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
-
+    <% if current_user %>
+      <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+    <% end %>
     <% if current_user %>
       <%= link_to "My albums", user_albums_url(current_user) %>
       <a href="/users/<%= controller.current_user.id %>">My profile</a>
     <% end %>
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <main>
+      <%= yield %>
+    </main>
 
-    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
 </html>
