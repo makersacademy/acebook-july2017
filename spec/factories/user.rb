@@ -6,5 +6,6 @@ FactoryGirl.define do
     password "test12"
     first_name "bob"
     last_name "bobby"
+    date_of_birth Time.now
   end
 end

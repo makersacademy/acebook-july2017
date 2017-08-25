@@ -70,3 +70,13 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to new_post_path do %>
+  New post
+<% end %>
+
+<% if current_user %>
+  <%= link_to user_wall_index_path(current_user) do %>
+   My Wall
+  <% end %>
+<% end %>
