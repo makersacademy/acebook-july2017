@@ -11,10 +11,10 @@
     <div id='post-<%= post.id %>' class="post card">
       <div class="post__head card-header">
         <span class="post__head__user">
-          <%= post.user_name %>
+          <%= link_to post.user_name, post.user %>
         </span>
         <span class="post__head__date">
-          posted at: <%= post.posted_at %>
+          <%= link_to post.posted_at, post_path(post) %>
         </span>
         <br>
       </div>
@@ -27,7 +27,7 @@
       <div class="post__interactions card-block">
         <hr>
         <div class="like" id="likes">
-          <span class="badge badge-info"><%= Like.where(post_id: post.id).count %> <%= post.like %></span>
+          <span class="badge badge-info"><%= post.like_count %> <%= post.like %></span>
         </div>
         <button type="button" class="comment-count btn btn-outline-info" data-toggle="collapse" data-target="#collapseComments<%= post.id %>" aria-expanded="false" aria-controls="collapseComments<%= post.id %>"><%= Comment.where(post_id: post.id).count %> comments</button>
       </div>

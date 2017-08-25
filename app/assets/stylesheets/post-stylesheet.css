@@ -16,6 +16,8 @@
 }
 
 .post__body {
+  margin-top:5px;
+	text-decoration: none;
   padding: .75rem 1.25rem;
 }
 
@@ -69,4 +71,9 @@
 
 .comment_user {
   color: #787878;
+}
+
+a.body_link {
+	text-decoration: none;
+	color: black;
 }

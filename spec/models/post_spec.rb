@@ -46,4 +46,11 @@ RSpec.describe Post, type: :model do
       expect(post.like).to eq("Likes")
     end
   end
+
+  describe "#like_count" do
+    it "returns number of likes for the post" do
+      post = like.post
+      expect(post.like_count).to eq(1)
+    end
+  end
 end

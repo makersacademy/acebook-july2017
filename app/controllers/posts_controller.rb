@@ -15,10 +15,17 @@ class PostsController < ApplicationController
     @post = current_user.posts.new
   end
 
+
   def destroy
     post = Post.find_by(destroy_params)
     post.destroy
     redirect_to posts_url
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @like = Like.new
   end
 
   private
