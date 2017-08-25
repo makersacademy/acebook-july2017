@@ -1,6 +1,7 @@
 <div class="user-profile">
   <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
     <%= link_to "Show wall", user_wall_index_path(@user) %>
+    <%= link_to "Show posts", posts_url%>
     <div><%= image_tag(@user.avatar.url(:medium)) %></div>
     <p>Date of Birth: <%= @user.format_date_of_birth %></p>
     <p>Hometown: <%= @user.hometown %></p>
