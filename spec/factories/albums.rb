@@ -1,6 +1,9 @@
 FactoryGirl.define do
   factory :album do
-    user { create(:user) }
     name 'Makers'
+    factory :valid_album do
+      user { create(:user) }
+    end
+    factory :invalid_album
   end
 end

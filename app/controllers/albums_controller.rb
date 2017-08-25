@@ -11,13 +11,6 @@ class AlbumsController < ApplicationController
 
   def create
     album = Album.create(album_params)
-    # if album.save
-    #   if image_params
-    #     image_params.each do |data|
-    #       album.images.create(data: data)
-    #     end
-    #   end
-    # end
     redirect_to user_albums_url
   end
 
@@ -30,9 +23,5 @@ class AlbumsController < ApplicationController
 
   def album_params
     params.require(:album).permit(:name, :user_id)
-  end
-
-  def image_params
-    params[:images]
   end
 end

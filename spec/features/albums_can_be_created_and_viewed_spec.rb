@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Album' do
   let!(:test_album_name) { 'My days at Makers' }
-  let!(:album) { create(:album) }
+  let!(:album) { create(:valid_album) }
 
   before do
     visit("/users/sign_in")
