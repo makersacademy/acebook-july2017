@@ -6,7 +6,7 @@ feature 'Album' do
   let!(:album) { create(:valid_album) }
 
   before do
-    login(user)
+    login(album.user)
   end
 
   scenario 'Albums can be created' do

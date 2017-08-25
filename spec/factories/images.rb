@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :image do
-    album nil
+    album { create(:valid_album) }
   end
 end
