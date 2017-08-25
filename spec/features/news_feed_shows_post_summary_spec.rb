@@ -8,12 +8,7 @@ RSpec.feature "News Feed", type: :feature do
   let!(:longpost) { create(:post, message: message) }
 
   before do
-    visit "/users/sign_in"
-    fill_in 'user_email', with: "test@test.com"
-    fill_in 'user_password', with: "test12"
-    within(:css, 'div.actions') do
-      click_button 'Log in'
-    end
+    login(user)
   end
 
   scenario "Long posts will be summarized on the news feed" do

@@ -14,11 +14,17 @@
   </head>
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">A C E B O O K</a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="text" placeholder="email" name='email'>
-      <input class="form-control mr-sm-2" type="text" placeholder="password" name='password'>
-      <button class="btn my-2 my-sm-0" type="submit" value='Log in'>Log in</button>
-    </form>
+    <% if current_user %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn my-2 my-sm-0", id: "sign_out" %>
+    <% else %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-inline"}) do |f| %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, :class => "form-control mr-sm-2 email", autofocus: true %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password, :class => "form-control mr-sm-2 password", autocomplete: "off" %>
+        <%= f.submit "Log in", :class => "btn my-2 my-sm-0 logIn" %>
+      <% end %>
+    <% end %>
   </nav>
 
   <body>
