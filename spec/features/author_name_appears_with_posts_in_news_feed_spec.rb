@@ -16,7 +16,7 @@ RSpec.feature "Username with posts in news feed", type: :feature do
   end
 
   scenario "when posts appear in the news feed" do
-    visit news_feed_url
+    visit news_feed_index_url
     expect(page).to have_content("#{first_name} #{last_name}")
   end
 end
