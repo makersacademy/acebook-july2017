@@ -12,7 +12,6 @@ RSpec.feature "Username with posts in news feed", type: :feature do
       fill_in "post_message", with: "Hello, world!"
       click_button "Submit"
     end
-
   end
 
   scenario "when posts appear in the news feed" do
