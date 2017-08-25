@@ -13,6 +13,6 @@ RSpec.feature "Like", type: :feature do
   scenario "number of like increase by 1 when button clicked" do
     # visit "/posts"
     click_button "Like"
-    expect(page.find_by_id('likes')).to have_content("likes: 1")
+    expect(page.find_by_id('likes')).to have_content("1 Like")
   end
 end

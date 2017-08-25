@@ -1,10 +1,10 @@
 .post {
-  width:40%;
-  margin:15px;
+  width:100%;
+  margin-top:7px;
+  margin-bottom:7px;
 }
 
 .post__head {
-  background-color:grey;
 }
 
 .post__head__user {
@@ -16,6 +16,57 @@
 }
 
 .post__body {
-  margin-top:5px;
-  background-color:lightgrey;
+  padding: .75rem 1.25rem;
+}
+
+.card-footer {
+  padding: .5em 0;
+}
+
+.like {
+  float: left;
+  margin-left: 5%;
+}
+
+.comment-count {
+  float: right;
+  margin-right: 5%;
+}
+
+.comment__body {
+  /*margin-left: 5%;
+  margin-right: 5%;*/
+  margin: 0.5em;
+  margin-top: 0;
+  color: black;
+}
+
+.comment__entry {
+  padding: 1%;
+}
+
+.comment__text p {
+  margin: 1%;
+}
+
+.post__interactions hr {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.post__interactions {
+  margin-bottom: 0.5em;
+}
+
+.form-group textarea {
+  margin: 0;
+}
+
+.commentbutton {
+  float: right;
+  margin: 1%;
+}
+
+.comment_user {
+  color: #787878;
 }
