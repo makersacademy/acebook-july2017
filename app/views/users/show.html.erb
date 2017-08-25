@@ -1,10 +1,11 @@
 <div class="user-profile">
-  <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
-    <div><%= image_tag(@user.avatar.url(:medium)) %></div>
-    <p>Date of Birth: <%= @user.format_date_of_birth %></p>
-    <p>Hometown: <%= @user.hometown %></p>
-    <p>Occupation: <%= @user.occupation %></p>
-    <p>About me: <%= @user.bio %></p>
+  <div class="user-avatar"><%= image_tag(@user.avatar.url(:medium)) %></div>
+    <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
+      <p>Date of Birth: <%= @user.format_date_of_birth %></p>
+      <p>Hometown: <%= @user.hometown %></p>
+      <p>Occupation: <%= @user.occupation %></p>
+      <p>About me: <%= @user.bio %></p>
+    </div>
 </div>
 
 <%= link_to "Edit your profile information", edit_user_registration_path %>
