@@ -12,7 +12,7 @@ RSpec.feature "News Feed", type: :feature do
   end
 
   scenario "Long posts will be summarized on the news feed" do
-    visit "/news_feed/index"
+    visit "/users/#{user.id}/news_feed"
     expect(page).not_to have_content("this should be hidden")
     expect(page).to have_content("a" * 20 + "...")
   end
