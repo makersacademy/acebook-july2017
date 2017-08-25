@@ -2,11 +2,11 @@ require 'rails_helper'
 require 'user_helpers'
 
 RSpec.feature "Username with posts in news feed", type: :feature do
-  let(:first_name) { "Ed" }
+  let(:first_name) { "Edward" }
   let(:last_name) { "Withers" }
 
   before do
-    sign_up(first_name: first_name, last_name: last_name)
+    sign_up
     visit posts_path
     within (".new_post") do
       fill_in "post_message", with: "Hello, world!"

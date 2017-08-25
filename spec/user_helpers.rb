@@ -1,30 +1,19 @@
-  def sign_up(first_name: "Edward",
-              last_name: "Withers",
-              birth_year: 1890,
-              birth_month: "May",
-              birth_day: 1,
-              email: "user@gmail.com",
-              password: "123456abc.",
-              hometown: "London",
-              occupation: "Coach",
-              bio: "I'm pretty cool and stuff. Now go feed the MonsterCat")
+def sign_up
     visit('/users/sign_up')
-    fill_in 'user_first_name', with: first_name
-    fill_in 'user_last_name', with: last_name
-    select birth_year, :from => "user_date_of_birth_1i"
-    select birth_month, :from => "user_date_of_birth_2i"
-    select birth_day, :from => "user_date_of_birth_3i"
-    fill_in 'user_email', with: email
-    fill_in 'user_password', with: password
-    fill_in 'user_password_confirmation', with: password
-    fill_in 'user_hometown', with: hometown
-    fill_in 'user_occupation', with: occupation
-    fill_in 'user_bio', with: bio
-    click_button 'Sign up'
-  end
-
-  def sign_out
-    click_link 'Sign out'
+    within(:css, 'form.new_user') do
+    fill_in 'user_first_name', with: 'Edward'
+    fill_in 'user_last_name', with: 'Withers'
+    select 1985, :from => "user_date_of_birth_1i"
+    select "May", :from => "user_date_of_birth_2i"
+    select 1, :from => "user_date_of_birth_3i"
+      fill_in 'user_email', with: 'user@gmail.com'
+      fill_in 'user_password', with: '123456abc.'
+      fill_in 'user_password_confirmation', with: '123456abc.'
+      fill_in 'user_hometown', with: 'London'
+      fill_in 'user_occupation', with: 'Coach'
+      fill_in 'user_bio', with: "I'm pretty cool and stuff. Now go feed the MonsterCat"
+      click_button 'Sign up'
+    end
   end
 
   def login(user)
